@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Monitoria.Models.CursoTurmaAluno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.CursoTurmaAlunoID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.CursoTurmaAlunoID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.CursoTurmaAlunoID })
+        </td>
+    </tr>
+}
+
+</table>
