@@ -11,7 +11,8 @@ namespace Monitoria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Curso
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,9 +21,15 @@ namespace Monitoria.Models
             this.Materias = new HashSet<Materia>();
             this.Usuarios = new HashSet<Usuario>();
         }
-    
+        [Key]
         public int CursoID { get; set; }
+
+        [Display(Name = "Nome do Curso")]
+        [Required(ErrorMessage = "O campo nome do curso é Obrigatório")]
         public string Nome { get; set; }
+
+        [Display(Name = "Duração")]
+        [Required(ErrorMessage = "O campo Duração é Obrigatório")]
         public string Duracao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -30,5 +37,6 @@ namespace Monitoria.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuarios { get; set; }
         public virtual Semestre Semestre { get; set; }
+
     }
 }

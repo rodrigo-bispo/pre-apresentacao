@@ -11,10 +11,15 @@ namespace Monitoria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Materia
     {
+        [Key]
         public int MateriaID { get; set; }
+
+        [Display(Name = "Nome da matéria")]
+        [Required(ErrorMessage = "O campo nome é Obrigatório")]
         public string Nome { get; set; }
     
         public virtual Curso Curso { get; set; }

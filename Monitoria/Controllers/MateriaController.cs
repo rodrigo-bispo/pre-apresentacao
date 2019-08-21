@@ -14,6 +14,11 @@ namespace Monitoria.Controllers
     {
         private MonitoriaEntities4 db = new MonitoriaEntities4();
 
+        public ActionResult Tarefa()
+        {
+            return View(db.Cursos.ToList());
+        }
+
         // GET: Materia
         public ActionResult Index()
         {
@@ -114,6 +119,7 @@ namespace Monitoria.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

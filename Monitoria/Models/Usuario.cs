@@ -13,6 +13,7 @@ namespace Monitoria.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Usuario
     {
@@ -22,18 +23,50 @@ namespace Monitoria.Models
             this.CursoTurmaAlunoes = new HashSet<CursoTurmaAluno>();
             this.Materias = new HashSet<Materia>();
         }
-    
+
+        [Key]
         public int ID { get; set; }
+
+        [Display(Name = "Nome Completo")]
+        [Required(ErrorMessage = "Seu nome é Obrigatório")]
         public string Nome { get; set; }
-        
+
+
+        [Display(Name = "Sexo")]
+        [Required(ErrorMessage = "Seu sexo é Obrigatório")]
         public string Sexo { get; set; }
+
+
+        [Display(Name = "CPF")]
+        [Required(ErrorMessage = "Seu CPF é Obrigatório")]
         public string CPF { get; set; }
+
+
+        [Display(Name = "DataNascimento")]
+        [Required(ErrorMessage = "Sua Data de Nascimento é Obrigatório")]
         public string DataNascimento { get; set; }
-        public string Email { get; set; }
+
+        [Display(Name = "Perfil")]
+        [Required(ErrorMessage = "Você é Aluno(A)" + "Ou é Professor(A)")]
         public string Perfil { get; set; }
+
+        [Required(ErrorMessage = "Seu Email é Obrigatório")]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        [Index("EmailIndex", IsUnique = true)]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Senha")]
         public string Senha { get; set; }
-        
-    
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar Senha")]
+        [Compare("Senha", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CursoTurmaAluno> CursoTurmaAlunoes { get; set; }
         public virtual Curso Curso { get; set; }

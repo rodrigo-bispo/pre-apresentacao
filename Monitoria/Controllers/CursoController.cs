@@ -12,7 +12,19 @@ namespace Monitoria.Controllers
 {
     public class CursoController : Controller
     {
+        [HttpPost]
+        public string ResponderEnquete(int opcao)
+        {
+            return "Obrigado! Você escolheu a opção " + opcao.ToString();
+        }
+
         private MonitoriaEntities4 db = new MonitoriaEntities4();
+
+        public ActionResult Visualizar()
+        {
+            return View(db.Cursos.ToList());
+        }
+
 
         // GET: Curso
         public ActionResult Index()
