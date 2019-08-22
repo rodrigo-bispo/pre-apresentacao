@@ -258,6 +258,7 @@
     <Content Include="Content\images\t2.jpg" />
     <Content Include="Content\images\t3.jpg" />
     <Content Include="Content\images\testi2.jpg" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\tarefacss.css" />
