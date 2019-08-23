@@ -5,39 +5,52 @@
 
 <h2>Tarefa</h2>
 
+@Html.ActionLink("Voltar ao curso", "Index")
+
 <div class="#">
-    <div class="panel panel-primary" id="painel-enquete">
-        <div class="panel-heading">
-            <p>Questões</p>
-        </div>
-        <div class="panel-body">
-            <p>O que é um Mouse :</p>
-            <input type="radio" name="opcao" value="1" checked /> Um Rato<br />
-            <input type="radio" name="opcao" value="2" /> Não sei<br />
-            <input type="radio" name="opcao" value="3" /> Pula<br />
-
-            <br>
-
-            <p>O que é um Teclado :</p>
-            <input type="radio" name="opcao" value="1" checked /> Bispo<br />
-            <input type="radio" name="opcao" value="2" /> rodrigo<br />
-            <input type="radio" name="opcao" value="3" /> Hoje<br />
-
-            <br>
-
-            <p>O que é uma TV :</p>
-            <input type="radio" name="opcao" value="1" checked /> Netflix<br />
-            <input type="radio" name="opcao" value="2" /> Youtube<br />
-            <input type="radio" name="opcao" value="3" /> watch<br />
-        </div>
-        <div class="panel-footer">
-            <button class="btn btn-primary" id="btnEnviarEnquete">Enviar</button>
+    <div class="#">
+        <div class="panel panel-primary" id="painel-enquete">
+            <div class="panel-heading">
+                <p>Enquete</p>
+            </div>
+            <div class="panel-body">
+                <p>Quais Dessas opções abaixo não é comida:</p>
+                <br>
+                <input type="radio" name="opcao" value="1" checked />Arroz<br>
+                <br>
+                <input type="radio" name="opcao" value="2" />Feijão<br>
+                <br>
+                <input type="radio" name="opcao" value="3" />Teclado<br>
+            </div>
+            <div class="jumbotron">
+                <button class="btn btn-primary" id="btnEnviarEnquete">Enviar</button>
+            </div>
         </div>
     </div>
 </div>
 
-<br>
-@Html.ActionLink("Volta ao curso", "Index", "Curso")
+
+
+
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#btnEnviarEnquete").click(function () {
+                var opc = $("#painel-enquete input[type=radio]:checked").val();
+                $.ajax({
+                    type: "POST",
+                    url: "ResponderEnquete",
+                    data: { opcao: opc }
+                }).done(function (msg) {
+                    $("#painel-enquete .panel-body").html("<p>" + msg + "<p>");
+                    $("#painel-enquete .panel-footer").hide();
+                });
+            });
+
+        });
+    </script>
+}
 
 
 

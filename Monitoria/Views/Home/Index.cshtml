@@ -1,29 +1,105 @@
 ﻿@{
 
     ViewBag.Title = "Monitoria";
-    
+
 }
 
-<div class="jumbotron">
-    <h1></h1>
-    <p class="lead">Vamos Voltar aos estudos </p>
-    <p></p>
+<html>
+ 
+<body>
 
-</div>
-
-<div class="row">
-
-    <div class="col-md-4">
-       
-
+    
+    <div class="jumbotron" style="background-color:#ffd800; color:white">
+       <h1>Monitoria</h1>
+        <p class="lead">Vamos continuar os Estudos.</p>       
     </div>
 
-    <div class="col-md-4">
+    <div class="row"> 
+        <div class=" col-md-4" style=" color:white">
+            <div class="card" style="width: 18rem;"> 
+                <div class="card-body" id="DivCurso"> 
+                    <h5 class="card-title">O que é Curso de Extenção.</h5>
+                    <p class="card-text" hidden id="Cursotexto">
+                        É uma atividade acadêmica,  que não está inclusa como parte integrante e obrigatória do ensino de graduação e da pós-graduação. O objetivo da extensão é complementar os conhecimentos.<br />
 
+                    </p>
+                    <button type="button" id="botaoCurso" class="btn btn-primary">Saiba Mais</button>
+                </div>
+            </div>
+        </div>
 
+        <div class=" col-md-4" style="color:white">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" id="DivMateria">
+                    <h5 class="card-title">Materia</h5>
+                    <p class="card-text" hidden id="Materiatexto">
+                        Suas materias também está na monitoria.<br />
+                    </p>
+                    <button type="button" id="botaoMateria" class="btn btn-primary">Saiba Mais</button>
 
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-4">
-    </div>
-</div>
+   
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.slim.js"></script>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            var BotaoOculta = $("<button />").attr("type", "button").attr("id", "botaoEscondeCurso").attr("class", "btn btn-primary").text("Ocultar").prop("hidden", true);
+            $("#DivCurso").append(BotaoOculta);
+            $("#botaoCurso").click(function () {
+                $("#Cursotexto").prop("hidden", false);
+                $("#botaoCurso").prop("hidden", true);
+                $("#botaoEscondeCurso").prop("hidden", false);
+            });
+            $("#botaoEscondeCurso").click(function () {
+                $("#Cursotexto").prop("hidden", true);
+                $("#botaoCurso").prop("hidden", false);
+                $("#botaoEscondeCurso").prop("hidden", true);
+
+            });
+        });
+
+
+        $(document).ready(function () {
+            var BotaoOculta = $("<button />").attr("type", "button").attr("id", "botaoEscondeMateria").attr("class", "btn btn-primary").text("Ocultar").prop("hidden", true);
+            $("#DivMateria").append(BotaoOculta);
+            $("#botaoMateria").click(function () {
+                $("#Materiatexto").prop("hidden", false);
+                $("#botaoMateria").prop("hidden", true);
+                $("#botaoEscondeMateria").prop("hidden", false);
+            });
+            $("#botaoEscondeMateria").click(function () {
+                $("#Materiatexto").prop("hidden", true);
+                $("#botaoMateria").prop("hidden", false);
+                $("#botaoEscondeMateria").prop("hidden", true);
+
+            });
+        });
+
+        $(document).ready(function () {
+            var BotaoOculta = $("<button />").attr("type", "button").attr("id", "botaoEscondeSaoRafael").attr("class", "btn btn-primary").text("Ocultar").prop("hidden", true);
+            $("#DivSaoRafael").append(BotaoOculta);
+            $("#botaoSaoRafael").click(function () {
+                $("#SaoRafaeltexto").prop("hidden", false);
+                $("#botaoSaoRafael").prop("hidden", true);
+                $("#botaoEscondeSaoRafael").prop("hidden", false);
+            });
+            $("#botaoEscondeSaoRafael").click(function () {
+                $("#SaoRafaeltexto").prop("hidden", true);
+                $("#botaoSaoRafael").prop("hidden", false);
+                $("#botaoEscondeSaoRafael").prop("hidden", true);
+
+            });
+        });
+
+    </script>        
+</body >
+
+</html >

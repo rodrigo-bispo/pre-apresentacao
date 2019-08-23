@@ -13,9 +13,10 @@ namespace Monitoria.Controllers
     public class CursoController : Controller
     {
         [HttpPost]
-        public string ResponderEnquete(int opcao)
+        public string  ResponderEnquete(int opcao)
         {
-            return "Obrigado! Você escolheu a opção " + opcao.ToString();
+            
+            return " Tarefa Concluída " + opcao.ToString();
         }
 
         private MonitoriaEntities4 db = new MonitoriaEntities4();
