@@ -10,6 +10,7 @@ using Monitoria.Models;
 
 namespace Monitoria.Controllers
 {
+
     [Authorize]
     public class ManageController : Controller
     {
@@ -24,6 +25,7 @@ namespace Monitoria.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+
         }
 
         public ApplicationSignInManager SignInManager

@@ -13,12 +13,12 @@ namespace Monitoria.Models
                 var existeEmail = (from u in dc.Usuarios
                                    where u.Email == email
                                    select u).FirstOrDefault();
-                
                 if (existeEmail != null)
                     return true;
                 else
                     return false;
             }
+
         }
     }
 }

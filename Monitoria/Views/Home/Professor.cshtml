@@ -1,18 +1,46 @@
-﻿@{
+﻿@model Monitoria.Models.Usuario
 
-    ViewBag.Title = "Monitoria";
-
+@{
+    ViewBag.Title = "Professor";
 }
 
+
+<div class="jumbotron" style="background-color:#ffd800; color:white">
+    <h1>Bem-Vindo Professor</h1>
+    <p class="lead">Vamos continuar os Estudos.</p>
+</div>
+
+<!DOCTYPE html>
 <html>
- 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bem Vindo</title>
+    <link href="~/Content/bootstrap-flaty.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Monitoria", "Professor", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Curso de Extensão", "Index", "Curso")</li>
+                <li>@Html.ActionLink("Minhas Materia", "Index", "Materia")</li>
+            </ul>
 
-
-    <div class="jumbotron" style="background-color:#ffd800; color:white">
-        <h1>Monitoria</h1>
-        <p class="lead">Controle Admin</p>
+        </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
     <div class="row">
         <div class=" col-md-4" style=" color:white">
@@ -41,31 +69,6 @@
             </div>
         </div>
     </div>
-
-    <link href="~/Content/bootstrap-flaty.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Monitoria", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Curso de Extensão", "Index", "Curso")</li>
-                <li>@Html.ActionLink("Minhas Materia", "Index", "Materia")</li>
-                <li>@Html.ActionLink("Cadastrados", "Index", "Usuarios")</li>
-            </ul>
-            @Html.Partial("_LoginPartial")
-        </div>
-    </div>
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
 
 
 
@@ -125,6 +128,6 @@
         });
 
     </script>
-</body>
 
-</html >
+</body>
+</html>

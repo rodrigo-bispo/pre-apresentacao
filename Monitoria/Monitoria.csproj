@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -178,7 +181,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
     <Compile Include="Controllers\SemestreController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +222,7 @@
       <DependentUpon>Monitoria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsuarioDAL.cs" />
+    <Compile Include="Models\ValidaDigitoCPF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -232,6 +236,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css_slider.css" />
+    <Content Include="Content\devmedia_estilo.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\2.jpg" />
@@ -385,13 +390,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Usuario\Create.cshtml" />
-    <Content Include="Views\Usuario\Delete.cshtml" />
-    <Content Include="Views\Usuario\Details.cshtml" />
-    <Content Include="Views\Usuario\Edit.cshtml">
-      <BrowseToURL>~/Usuario/Editar</BrowseToURL>
-    </Content>
-    <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Curso\Create.cshtml" />
     <Content Include="Views\Curso\Delete.cshtml" />
     <Content Include="Views\Curso\Details.cshtml" />
@@ -423,6 +421,18 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Curso\Visualizar.cshtml" />
     <Content Include="Views\Materia\Tarefa.cshtml" />
+    <Content Include="Views\Home\Registro.cshtml" />
+    <Content Include="Views\Home\Logar.cshtml" />
+    <Content Include="Views\Home\Professor.cshtml" />
+    <Content Include="Views\Home\Aluno.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Scripts\multifile.jquery.json" />
+    <Content Include="Views\Curso\Indexx.cshtml" />
+    <Content Include="Views\Curso\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

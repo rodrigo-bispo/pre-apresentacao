@@ -1,4 +1,7 @@
-﻿<link href="~/Content/login.css" rel="stylesheet" />
+﻿@model Monitoria.Models.Usuario
+
+<link href="~/Content/login.css" rel="stylesheet" />
+
 
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
@@ -9,7 +12,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink(User.Identity.GetUserName() + "Manage", "Index","Manage" , routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink(User.Identity.GetUserName() + " - Bem-Vindo", "Index", "Home", routeValues: null, htmlAttributes: new { title = "User" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a></li>
         </ul>
@@ -18,7 +21,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registrarLink" })</li>
-        <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Registro", "Registro", "Home", routeValues: null, htmlAttributes: new { id = "registrarLink" })</li>
+        <li>@Html.ActionLink("Logar", "Logar", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

@@ -10,6 +10,8 @@ using Monitoria.Models;
 
 namespace Monitoria.Controllers
 {
+
+    [Authorize]
     public class CursoTurmaAlunoController : Controller
     {
         private MonitoriaEntities4 db = new MonitoriaEntities4();
@@ -39,7 +41,7 @@ namespace Monitoria.Controllers
         // GET: CursoTurmaAluno/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Usuarios, "ID", "Nome");
+            ViewBag.ID = new SelectList(db.Curso, "ID", "Nome");
             return View();
         }
 

@@ -12,8 +12,7 @@ using Monitoria.Models;
 
 namespace Monitoria.Controllers
 {
-    [Authorize(Roles = "Professor")]
-    [Authorize(Roles = "Aluno")]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -56,9 +55,9 @@ namespace Monitoria.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string ReturnUrl)
+        public ActionResult Login()
         {
-            ViewBag.returnUrl = ReturnUrl;
+            
             return View();
         }
 

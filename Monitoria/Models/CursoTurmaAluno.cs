@@ -11,10 +11,14 @@ namespace Monitoria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CursoTurmaAluno
     {
         public int CursoTurmaAlunoID { get; set; }
+
+        [Display(Name = "Sobre")]
+        [Required(ErrorMessage = "O campo nome é Obrigatório")]
         public int ID { get; set; }
     
         public virtual Usuario Usuario { get; set; }

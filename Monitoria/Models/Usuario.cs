@@ -42,8 +42,8 @@ namespace Monitoria.Models
         public string CPF { get; set; }
 
 
-        [Display(Name = "DataNascimento")]
-        [Required(ErrorMessage = "Sua Data de Nascimento é Obrigatório")]
+        [DisplayName("Data de Nascimento")]
+        [DataType(DataType.Date, ErrorMessage = "Uma data válida deve ser informada")]
         public string DataNascimento { get; set; }
 
         [Display(Name = "Perfil")]
@@ -62,9 +62,6 @@ namespace Monitoria.Models
         [Display(Name = "Senha")]
         public string Senha { get; set; }
 
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirmar Senha")]
-        [Compare("Senha", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
 
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

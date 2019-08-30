@@ -10,6 +10,7 @@ using Monitoria.Models;
 
 namespace Monitoria.Controllers
 {
+
     public class MateriaController : Controller
     {
         private MonitoriaEntities4 db = new MonitoriaEntities4();
@@ -57,7 +58,8 @@ namespace Monitoria.Controllers
             {
                 db.Materias.Add(materia);
                 db.SaveChanges();
-                return RedirectToAction("Materia","Index");
+                return RedirectToAction("Index");
+               
             }
 
             return View(materia);

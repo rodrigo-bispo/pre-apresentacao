@@ -1,22 +1,27 @@
-﻿using Monitoria.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using Monitoria.Models;
 
 namespace Monitoria.Controllers
 {
-    public class UsuarioController : Controller
+   
+    public class UsuariosController : Controller
     {
-        public MonitoriaEntities4 db = new MonitoriaEntities4();
+        private MonitoriaEntities4 db = new MonitoriaEntities4();
 
-        // GET: Usuario
+        // GET: Usuarios
         public ActionResult Index()
         {
             return View(db.Usuarios.ToList());
         }
-        [HttpPost]
-        // GET: Usuario/Details/5
+
+        // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -31,13 +36,13 @@ namespace Monitoria.Controllers
             return View(usuario);
         }
 
-        // GET: Usuario/Create
+        // GET: Usuarios/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuario/Create
+        // POST: Usuarios/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -54,7 +59,7 @@ namespace Monitoria.Controllers
             return View(usuario);
         }
 
-        // GET: Usuario/Edit/5
+        // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -69,7 +74,7 @@ namespace Monitoria.Controllers
             return View(usuario);
         }
 
-        // POST: Usuario/Edit/5
+        // POST: Usuarios/Edit/5
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -85,7 +90,7 @@ namespace Monitoria.Controllers
             return View(usuario);
         }
 
-        // GET: Usuario/Delete/5
+        // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -100,7 +105,7 @@ namespace Monitoria.Controllers
             return View(usuario);
         }
 
-        // POST: Usuario/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -119,6 +124,5 @@ namespace Monitoria.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 }
