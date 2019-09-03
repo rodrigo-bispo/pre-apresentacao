@@ -13,7 +13,7 @@ namespace Monitoria.Controllers
 
     public class SemestreController : Controller
     {
-        private MonitoriaEntities4 db = new MonitoriaEntities4();
+        private MonitoriaEntities5 db = new MonitoriaEntities5();
 
         // GET: Semestre
         public ActionResult Index()

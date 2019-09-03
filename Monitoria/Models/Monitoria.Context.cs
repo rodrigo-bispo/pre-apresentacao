@@ -10,14 +10,13 @@
 namespace Monitoria.Models
 {
     using System;
-    using System.Collections;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    public partial class MonitoriaEntities4 : DbContext
+    
+    public partial class MonitoriaEntities5 : DbContext
     {
-        public MonitoriaEntities4()
-            : base("name=MonitoriaEntities4")
+        public MonitoriaEntities5()
+            : base("name=MonitoriaEntities5")
         {
         }
     
@@ -31,7 +30,6 @@ namespace Monitoria.Models
         public virtual DbSet<Materia> Materias { get; set; }
         public virtual DbSet<Semestre> Semestres { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Usuario> Curso { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

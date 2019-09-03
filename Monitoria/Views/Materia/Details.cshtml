@@ -6,20 +6,26 @@
 
 <h2>Detalhes</h2>
 
-<div>
-    <h4>Materia</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-    </dl>
+<div class="jumbotron">
+    <h1>Trabalho de C#</h1>
+    <p class="lead">Professor: XXXXX </p>
+    <p>Data de Entrega:XX/XX/XXXX</p>
+    <p>Grupo até 4 Pessoa </p>
+    <p>Enviar o Trabalho no Email do Professor </p>
+    <p>Email:XXX@Email.com</p>
 </div>
+
+<div class="jumbotron">
+    <h2>Requisitos do Trabalho:</h2>
+    <p class="lead">Ajax</p>
+    <p>Booststrap</p>
+    <p>MVC</p>
+    <p>SQL Serve</p>
+    <p>CRUD em 5 Tabelas</p>
+
+</div>
+
+
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.MateriaID }) |
     @Html.ActionLink("Voltar Nas Minhas Matérias", "Index")

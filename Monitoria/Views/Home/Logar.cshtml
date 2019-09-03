@@ -2,54 +2,59 @@
 
 @{
     ViewBag.Title = "Logar";
+
+
 }
 
 
-<div class="row" style="margin-left: 350px; color:black">
-    <link href="~/Content/bootstrap-flaty.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <div class="col-md-8">
-        <h2>@ViewBag.Title.</h2>
-        @using (Html.BeginForm("Logar", "Home", new { ReturnUrl = ViewBag.ReturnUrl },
-            FormMethod.Post, new { @class = "absolute", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-            <h4></h4>
-            <hr />
-            @Html.ValidationSummary(true, "Olá", new { @class = "text-danger" })
+    <div class="row" style="margin-left: 350px; color:white">
+        <link href="~/Content/bootstrap-flaty.css" rel="stylesheet" />
+        <link href="~/Content/Site.css" rel="stylesheet" />
+        <div class="overlays"></div>
+        <div class="col-md-8">
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Perfil, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Perfil, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Perfil, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Senha, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            <h2 style="margin-top: 50%; text-align:center">Bem-Vindo</h2>
+            @using (Html.BeginForm("Logar", "Home", new { ReturnUrl = ViewBag.ReturnUrl },
+                FormMethod.Post, new { @class = "absolute", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4></h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Logar" class="btn btn-default" />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Perfil, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Perfil, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Perfil, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <p>
-                @Html.ActionLink("Registrar um novo usuário", "Registro")
-            </p>
-            @* Habilite quando a confirmação da conta estiver ativada para a funcionalidade de redefinição de senha
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Senha, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Logar" class="btn btn-default" />
+                    </div>
+                </div>
+                @*<p>
+                    @Html.ActionLink("Registrar um novo usuário", "Registro")
+                </p>*@
+                @* Habilite quando a confirmação da conta estiver ativada para a funcionalidade de redefinição de senha
                 <p>
                     @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
                 </p>*@
 
-        }
+            }
+        </div>
     </div>
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

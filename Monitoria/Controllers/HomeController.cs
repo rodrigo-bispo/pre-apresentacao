@@ -13,6 +13,7 @@ namespace Monitoria.Controllers
 
     public class HomeController : Controller
     {
+
         public ActionResult Aluno()
         {
             return View();
@@ -34,10 +35,11 @@ namespace Monitoria.Controllers
             // esta action trata o post (login)
             if (ModelState.IsValid) //verifica se é válido
             {
-                using (MonitoriaEntities4 dc = new MonitoriaEntities4())
+                using (MonitoriaEntities5 dc = new MonitoriaEntities5())
                 {
                     var v = dc.Usuarios.Where(a => a.Perfil.Equals(u.Perfil) && a.Senha.Equals(u.Senha)).FirstOrDefault();
                     if (v != null)
+
                     {
                         Session["EmailLogado"] = v.Perfil.ToString();
                         return View("Lockout");
@@ -49,15 +51,17 @@ namespace Monitoria.Controllers
             Session["ID"] = u.ID;
             Session["Perfil"] = u.Perfil;
 
-            if (Session["Perfil"].ToString() == "Null")
+            if (Session["Perfil"].ToString() == "null")
             {
-                return View("Lockout");
+                return RedirectToAction("Logar", "Home");
             }
+
 
             if (Session["Perfil"].ToString() == "ADMIN")
             {
                 return RedirectToAction("Index", "Home");
             }
+
 
             if (Session["Perfil"].ToString() == "Aluno")
             {
@@ -70,13 +74,17 @@ namespace Monitoria.Controllers
             }
 
             if (Session["Perfil"].ToString() == "null")
+
             {
                 return RedirectToAction("Logar");
+
             }
+
             else
             {
-                return RedirectToAction("Logar", u);
+                return RedirectToAction("Logar","Home", u);
             }
+
         }
 
 
@@ -92,7 +100,7 @@ namespace Monitoria.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (MonitoriaEntities4 dc = new MonitoriaEntities4())
+                using (MonitoriaEntities5 dc = new MonitoriaEntities5())
                 {
                     //verifica duplicidade
                     if (!UsuarioDAL.VerificaEmail(_usuario.Email))

@@ -15,6 +15,7 @@ namespace Monitoria.Models
 
     public partial class CursoTurmaAluno
     {
+        [Key]
         public int CursoTurmaAlunoID { get; set; }
 
         [Display(Name = "Sobre")]

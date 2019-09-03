@@ -14,7 +14,7 @@ namespace Monitoria.Controllers
     [Authorize]
     public class CursoTurmaAlunoController : Controller
     {
-        private MonitoriaEntities4 db = new MonitoriaEntities4();
+        private MonitoriaEntities5 db = new MonitoriaEntities5();
 
         // GET: CursoTurmaAluno
         public ActionResult Index()
@@ -41,7 +41,7 @@ namespace Monitoria.Controllers
         // GET: CursoTurmaAluno/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Curso, "ID", "Nome");
+            ViewBag.ID = new SelectList(db.Usuarios, "ID", "Nome");
             return View();
         }
 

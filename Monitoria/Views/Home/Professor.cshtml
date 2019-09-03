@@ -2,12 +2,13 @@
 
 @{
     ViewBag.Title = "Professor";
+    
 }
 
 
 <div class="jumbotron" style="background-color:#ffd800; color:white">
     <h1>Bem-Vindo Professor</h1>
-    <p class="lead">Vamos continuar os Estudos.</p>
+    <p class="lead">Vamos Das Continuidade aos Estudos.</p>
 </div>
 
 <!DOCTYPE html>
@@ -29,12 +30,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Monitoria", "Professor", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Delta", "Professor", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Curso de Extensão", "Index", "Curso")</li>
+                <li>@Html.ActionLink("Atividades Extracurriculares", "Index", "Curso")</li>
                 <li>@Html.ActionLink("Minhas Materia", "Index", "Materia")</li>
+                <li>@Html.ActionLink("Sair", "Logar", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
             </ul>
 
         </div>
@@ -46,7 +48,7 @@
         <div class=" col-md-4" style=" color:white">
             <div class="card" style="width: 18rem;">
                 <div class="card-body" id="DivCurso">
-                    <h5 class="card-title">O que é Curso de Extenção.</h5>
+                    <h5 class="card-title">O que é Atividades Extracurriculares.</h5>
                     <p class="card-text" hidden id="Cursotexto">
                         É uma atividade acadêmica,  que não está inclusa como parte integrante e obrigatória do ensino de graduação e da pós-graduação. O objetivo da extensão é complementar os conhecimentos.<br />
 

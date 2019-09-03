@@ -8,7 +8,7 @@ namespace Monitoria.Models
     {
         public static bool VerificaEmail(string email)
         {
-            using (MonitoriaEntities4 dc = new MonitoriaEntities4())
+            using (MonitoriaEntities5 dc = new MonitoriaEntities5())
             {
                 var existeEmail = (from u in dc.Usuarios
                                    where u.Email == email

@@ -16,43 +16,15 @@ namespace Monitoria.Controllers
     
     public class CursoController : Controller
     {
-
-        public ActionResult FileUpload()
-        {
-            int arquivosSalvos = 0;
-            for (int i = 0; i < Request.Files.Count; i++)
-            {
-                HttpPostedFileBase arquivo = Request.Files[i];
-
-                //Suas validações ......
-
-                //Salva o arquivo
-                if (arquivo.ContentLength > 0)
-                {
-                    var uploadPath = Server.MapPath("~/Content/Uploads");
-                    string caminhoArquivo = Path.Combine(@uploadPath,
-                    Path.GetFileName(arquivo.FileName));
-
-                    arquivo.SaveAs(caminhoArquivo);
-                    arquivosSalvos++;
-                }
-            }
-
-            ViewData["Message"] = String.Format(" arquivo(s) salvo(s) com sucesso.",
-                arquivosSalvos);
-            return View("Upload");
-        }
-
-
-        [HttpPost]
-
         public string  ResponderEnquete(int opcao)
         {
             
             return " Tarefa Concluída " + opcao.ToString();
         }
 
-        private MonitoriaEntities4 db = new MonitoriaEntities4();
+        private MonitoriaEntities5 db = new MonitoriaEntities5();
+
+
 
         public ActionResult Visualizar()
         {
@@ -61,11 +33,11 @@ namespace Monitoria.Controllers
 
 
         // GET: Curso
-       
         public ActionResult Index()
         {
             return View(db.Cursos.ToList());
         }
+
 
         // GET: Curso/Details/5
         public ActionResult Details(int? id)
@@ -92,7 +64,6 @@ namespace Monitoria.Controllers
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-       
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CursoID,Nome,Duracao")] Curso curso)
         {
@@ -125,7 +96,6 @@ namespace Monitoria.Controllers
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-     
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CursoID,Nome,Duracao")] Curso curso)
         {
@@ -138,6 +108,7 @@ namespace Monitoria.Controllers
             return View(curso);
         }
 
+       
         // GET: Curso/Delete/5
         public ActionResult Delete(int? id)
         {

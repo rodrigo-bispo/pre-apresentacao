@@ -6,7 +6,6 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 namespace Monitoria.Models
 {
     using System;
@@ -14,7 +13,6 @@ namespace Monitoria.Models
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,6 +24,7 @@ namespace Monitoria.Models
 
         [Key]
         public int ID { get; set; }
+
 
         [Display(Name = "Nome Completo")]
         [Required(ErrorMessage = "Seu nome é Obrigatório")]
@@ -62,12 +61,16 @@ namespace Monitoria.Models
         [Display(Name = "Senha")]
         public string Senha { get; set; }
 
-
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<CursoTurmaAluno> CursoTurmaAlunoes { get; set; }
+
         public virtual Curso Curso { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Materia> Materias { get; set; }
+
     }
+
 }

@@ -336,7 +336,7 @@
           <End Role="Cursos" Type="Self.Curso" Multiplicity="*" />
           <End Role="Semestre" Type="Self.Semestre" Multiplicity="0..1" />
         </Association>
-        <EntityContainer Name="MonitoriaEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MonitoriaEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cursos" EntityType="Self.Curso" />
           <EntitySet Name="CursoTurmaAlunoes" EntityType="Self.CursoTurmaAluno" />
           <EntitySet Name="Materias" EntityType="Self.Materia" />
@@ -369,7 +369,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MonitoriaModelStoreContainer" CdmEntityContainer="MonitoriaEntities4">
+        <EntityContainerMapping StorageEntityContainer="MonitoriaModelStoreContainer" CdmEntityContainer="MonitoriaEntities5">
           <EntitySetMapping Name="Cursos">
             <EntityTypeMapping TypeName="MonitoriaModel.Curso">
               <MappingFragment StoreEntitySet="Cursos">

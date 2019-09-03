@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,7 +14,16 @@ namespace Monitoria.Controllers
 
     public class MateriaController : Controller
     {
-        private MonitoriaEntities4 db = new MonitoriaEntities4();
+
+        private MonitoriaEntities5 db = new MonitoriaEntities5();
+
+
+        public ActionResult Trabalho()
+        {
+            return View(db.Materias.ToList());
+        }
+
+
 
         public ActionResult Tarefa()
         {
@@ -25,6 +35,43 @@ namespace Monitoria.Controllers
         {
             return View(db.Materias.ToList());
         }
+
+        public ActionResult Home()
+        {
+            return View();
+
+        }
+        // POST:
+
+        [HttpPost]
+        public ActionResult Home(Remessa arq)
+        {
+
+            try
+            {
+                string nomeArquivo = "";
+                string arquivoEnviados = "";
+                foreach (var arquivo in arq.Arquivos)
+                {
+                    if (arquivo.ContentLength > 0)
+                    {
+                        nomeArquivo = Path.GetFileName(arquivo.FileName);
+                        var caminho = Path.Combine(Server.MapPath("~/Imagens"), nomeArquivo);
+                        arquivo.SaveAs(caminho);
+                    }
+                    arquivoEnviados = arquivoEnviados + " , " + nomeArquivo;
+
+                }
+                ViewBag.Mensagem = "Arquivo enviados : " + arquivoEnviados + " , com sucesso.";
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Mensagem = "Erro : " + ex.Message;
+            }
+            return View();
+        }
+
 
         // GET: Materia/Details/5
         public ActionResult Details(int? id)

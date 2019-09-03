@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Edit";
+    if (Session["Perfil"].ToString() == "Aluno")
+    {
+        Response.Redirect("~/Materia/Index");
+    }
 }
 
 <h2>Editar</h2>
@@ -9,7 +13,6 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <h4>Materia</h4>

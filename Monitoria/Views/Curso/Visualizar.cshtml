@@ -3,9 +3,19 @@
     ViewBag.Title = "Visualizar";
 }
 
-<h2>Tarefa</h2>
 
-@Html.ActionLink("Voltar a Curso de Extensão", "Index")
+    <div class="jumbotron" style="background-color:forestgreen; color:white">
+        <h1>Tarefa</h1>
+        <br>
+        <br>
+        <p> O que é Informática ?</p>
+        <p>O que é internet ? </p>
+        <p>O que é Mouse ? </p>
+        <br>
+        <br>
+        <p>OBS: Mandar as Respostas no Upload de Arquivos.</p>
+
+    </div>
 
 <div class="#">
     <div class="#">
@@ -14,13 +24,13 @@
                 <p>Enquete</p>
             </div>
             <div class="panel-body">
-                <p>Quais Dessas opções abaixo não é comida:</p>
+                <p>Como Anda Seu Estudos:</p>
                 <br>
-                <input type="radio" name="opcao" value="1" checked />Arroz<br>
+                <input type="radio" name="opcao" value="1" checked />Ótimo<br>
                 <br>
-                <input type="radio" name="opcao" value="2" />Feijão<br>
+                <input type="radio" name="opcao" value="2" />Bom<br>
                 <br>
-                <input type="radio" name="opcao" value="3" />Teclado<br>
+                <input type="radio" name="opcao" value="3" />Mal<br>
             </div>
             <div class="jumbotron">
                 <button class="btn btn-primary" id="btnEnviarEnquete">Enviar</button>
@@ -52,5 +62,6 @@
     </script>
 }
 
+@Html.ActionLink("Voltar", "Index")
 
 
